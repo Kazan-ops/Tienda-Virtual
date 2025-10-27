@@ -123,11 +123,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="carritoCompra.cpp" />
     <ClCompile Include="Itemcarrito.cpp" />
     <ClCompile Include="producto.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="carritoCompra.h" />
     <ClInclude Include="ItemCarrito.h" />
     <ClInclude Include="producto.h" />
   </ItemGroup>
