@@ -3,6 +3,8 @@
 using namespace std;
 
 int main() {
+
+	//Esto es solo un ejemplo, pueden borrarlo y crear sus propias pruebas para continuar con el desarrollo 
     Producto camisa(1, "Camisa Casual", "Camisa de algodon, talla M", 18000.0, 15);
     camisa.mostrarInfo();
 
