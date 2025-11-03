@@ -130,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="carritoCompra.h" />
+    <ClInclude Include="Inventario.h" />
     <ClInclude Include="ItemCarrito.h" />
     <ClInclude Include="producto.h" />
   </ItemGroup>
