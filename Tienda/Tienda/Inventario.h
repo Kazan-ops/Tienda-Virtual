@@ -8,9 +8,12 @@ private:
     vector<Producto> productos;
 
 public:
+
     void agregarProducto(const Producto& producto);
-    void mostrarInventario() const;
+
     Producto* buscarProducto(int idProducto);
-    void actualizarStock(int idProducto, int cantidadVendida);
+
+    void actualizarStock(int idProducto, int cantidad);
+
+    void mostrarInventario() const;
 };
-#pragma once
