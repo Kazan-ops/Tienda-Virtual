@@ -124,15 +124,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="carritoCompra.cpp" />
+    <ClCompile Include="checkout.cpp" />
     <ClCompile Include="Itemcarrito.cpp" />
+    <ClCompile Include="pago.cpp" />
     <ClCompile Include="producto.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Inventario.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="carritoCompra.h" />
+    <ClInclude Include="checkout.h" />
     <ClInclude Include="Inventario.h" />
     <ClInclude Include="ItemCarrito.h" />
+    <ClInclude Include="pago.h" />
     <ClInclude Include="producto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
