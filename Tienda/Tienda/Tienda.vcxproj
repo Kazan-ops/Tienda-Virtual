@@ -125,7 +125,7 @@
   <ItemGroup>
     <ClCompile Include="carritoCompra.cpp" />
     <ClCompile Include="checkout.cpp" />
-    <ClCompile Include="Itemcarrito.cpp" />
+    <ClCompile Include="ItemCarrito.cpp" />
     <ClCompile Include="pago.cpp" />
     <ClCompile Include="producto.cpp" />
     <ClCompile Include="main.cpp" />
