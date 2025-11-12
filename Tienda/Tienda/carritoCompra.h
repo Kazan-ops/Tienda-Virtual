@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "ItemCarrito.h"
+#define MAX_UNIDADES 15
 
 class CarritoCompra {
 private:
@@ -9,7 +10,7 @@ private:
 
 public:
     void agregarItem(const Producto& producto, int cantidad);
-    void eliminarItem(int idProducto);
+    bool eliminarItem(int idProducto, int cantidadEliminar);
     void calcularTotal();
     double getTotal() const;
     void mostrarCarrito() const;

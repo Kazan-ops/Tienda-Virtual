@@ -11,4 +11,5 @@ public:
 	double calcularSubtotal() const;
 	Producto getProducto() const;
 	int getCantidad() const;
+	void setCantidad(int nuevaCantidad);
 };
