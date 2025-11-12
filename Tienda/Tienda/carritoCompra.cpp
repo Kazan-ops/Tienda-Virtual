@@ -3,33 +3,39 @@
 #include <iostream>
 using namespace std;
 
-void CarritoCompra::agregarItem(const Producto& producto, int cantidad) {
-
+bool CarritoCompra::agregarItem(const Producto& producto, int cantidad) {
     int totalUnidades = 0;
-    for (const auto& item : items)
+
+    for (const auto& item : items) {
         totalUnidades += item.getCantidad();
-
-
-    if (totalUnidades + cantidad > MAX_UNIDADES) {
-        cout << "\n  No puedes agregar más de " << MAX_UNIDADES
-            << " unidades en total al carrito.\n";
-        return;
     }
 
+    
+    if (totalUnidades + cantidad > MAX_UNIDADES) {
+        std::cout << "\n  No puedes agregar más de " << MAX_UNIDADES
+            << " unidades en total al carrito.\n";
+        return false; 
+    }
+
+    
     for (auto& item : items) {
         if (item.getProducto().getIdProducto() == producto.getIdProducto()) {
             item.setCantidad(item.getCantidad() + cantidad);
             calcularTotal();
-            cout << "\nSe agregaron " << cantidad
+            std::cout << "\nSe agregaron " << cantidad
                 << " unidades más de '" << producto.getNombre() << "'.\n";
-            return;
+            return true;
         }
     }
 
+    
     items.push_back(ItemCarrito(producto, cantidad));
     calcularTotal();
-    cout << "\nProducto '" << producto.getNombre() << "' agregado al carrito.\n";
+    std::cout << "\nProducto '" << producto.getNombre() << "' agregado al carrito.\n";
+
+    return true;
 }
+
 
 
 bool CarritoCompra::eliminarItem(int idProducto, int cantidadEliminar) {

@@ -103,9 +103,15 @@ int main() {
 
                 Producto* producto = inventario.buscarProducto(id);
                 if (producto != nullptr && producto->getStock() >= cantidad) {
-                    carrito.agregarItem(*producto, cantidad);
-                    inventario.actualizarStock(id, -cantidad);
-                    cout << "\nProducto agregado al carrito.\n";
+                    bool agregado = carrito.agregarItem(*producto, cantidad);
+
+                    if (agregado) {
+                        inventario.actualizarStock(id, -cantidad); 
+                        cout << "\nProducto agregado al carrito.\n";
+                    }
+                    else {
+                        cout << "\nNo se agregó el producto al carrito.\n";
+                    }
                 }
                 else {
                     cout << "\nNo hay suficiente stock o producto no encontrado.\n";
