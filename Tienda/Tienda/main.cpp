@@ -25,11 +25,11 @@ int main() {
     Inventario inventario;
     CarritoCompra carrito; 
    
-    inventario.agregarProducto(Producto(1, "Camisa blanca", "Camisa de algodón talla M", 18000, 10));
-    inventario.agregarProducto(Producto(2, "Pantalón jeans", "Pantalón azul clásico", 25000, 8));
+    inventario.agregarProducto(Producto(1, "Camisa blanca", "Camisa de algodon", 18000, 10));
+    inventario.agregarProducto(Producto(2, "Pantalon jeans", "Pantalon azul clasico", 25000, 8));
     inventario.agregarProducto(Producto(3, "Gorra negra", "Gorra ajustable con logo", 8000, 20));
-	inventario.agregarProducto(Producto(4, "Zapatos deportivos", "Zapatos cómodos para correr", 45000, 5));
-	inventario.agregarProducto(Producto(5, "Chaqueta de cuero", "Chaqueta elegante de cuero sintético", 60000, 3));
+	inventario.agregarProducto(Producto(4, "Zapatos deportivos", "Zapatos comodos para correr", 45000, 5));
+	inventario.agregarProducto(Producto(5, "Chaqueta de cuero", "Chaqueta elegante de cuero sintetico", 60000, 3));
 	inventario.agregarProducto(Producto(6, "Vestido veraniego", "Vestido ligero para el verano", 30000, 7));
 	inventario.agregarProducto(Producto(7, "medias Jordan", "medias para deportes Jordan", 55000, 4));
 	inventario.agregarProducto(Producto(8, "sueter Addidas", "Sueter de cuero resistente al agua", 75000, 6));
@@ -39,9 +39,9 @@ int main() {
 	inventario.agregarProducto(Producto(12, "camisa sin mangas ", "camisa sin mangas floja", 110000, 5));
 	inventario.agregarProducto(Producto(13, "falda corta", "falda corta de mezclilla", 35000, 12)); 
 	inventario.agregarProducto(Producto(14, "blusa elegante", "blusa elegante de seda", 95000, 4));
-	inventario.agregarProducto(Producto(15, "shorts deportivos", "shorts cómodos para hacer ejercicio", 28000, 10));
-	inventario.agregarProducto(Producto(16, "bufanda de lana", "bufanda cálida de lana", 22000, 14));
-	inventario.agregarProducto(Producto(17, "guantes táctiles", "guantes que permiten usar pantallas táctiles", 15000, 18));
+	inventario.agregarProducto(Producto(15, "shorts deportivos", "shorts comodos para hacer ejercicio", 28000, 10));
+	inventario.agregarProducto(Producto(16, "bufanda de lana", "bufanda calida de lana", 22000, 14));
+	inventario.agregarProducto(Producto(17, "guantes tactiles", "guantes que permiten usar pantallas tactiles", 15000, 18));
 	inventario.agregarProducto(Producto(18, "licra de mujer", "licra larga para mujer", 120000, 7));
 	inventario.agregarProducto(Producto(19, "polo deportivo", "polo transpirable para deportes", 50000, 11));
 	inventario.agregarProducto(Producto(20, "chaleco reflectante", "chaleco para correr de noche", 30000, 9));
@@ -52,10 +52,10 @@ int main() {
 
     do {
         cout << "\n=== TIENDA VIRTUAL ===\n";
-        cout << "1. Iniciar sesión\n";
+        cout << "1. Iniciar sesion\n";
         cout << "2. Registrar usuario\n";
         cout << "3. Salir\n";
-        cout << "Seleccione una opción: ";
+        cout << "Seleccione una opcion: ";
         cin >> opcion;
 
         switch (opcion) {
@@ -69,7 +69,7 @@ int main() {
             cout << "Saliendo del sistema...\n";
             return 0;
         default:
-            cout << "Opción inválida.\n";
+            cout << "Opcion invalida.\n";
         }
 
         
@@ -77,15 +77,15 @@ int main() {
             pausar();
             limpiarPantalla();
             int subopcion;
-            cout << "\n=== MENÚ PRINCIPAL ===\n";
+            cout << "\n=== MENU PRINCIPAL ===\n";
             cout << "Usuario: " << usuarioLogueado << endl;
-            cout << "1. Ver catálogo de productos\n";
+            cout << "1. Ver catalogo de productos\n";
             cout << "2. Agregar producto al carrito\n";
             cout << "3. Ver carrito\n";
             cout << "4. Realizar pago\n";
 			cout << "5. Eliminar producto del carrito\n";
-            cout << "6. Cerrar sesión\n";
-            cout << "Seleccione una opción: ";
+            cout << "6. Cerrar sesion\n";
+            cout << "Seleccione una opcion: ";
             cin >> subopcion;
 
             if (subopcion == 1) {
@@ -110,7 +110,7 @@ int main() {
                         cout << "\nProducto agregado al carrito.\n";
                     }
                     else {
-                        cout << "\nNo se agregó el producto al carrito.\n";
+                        cout << "\nNo se agrego el producto al carrito.\n";
                     }
                 }
                 else {
@@ -123,25 +123,27 @@ int main() {
             }
             else if (subopcion == 4) {
                 if (carrito.estaVacio()) {
-                    cout << "\nEl carrito está vacío.\n";
-                } else {
+                    cout << "\nEl carrito esta vacio.\n";
+                }
+                else {
                     double total = carrito.getTotal();
-                    cout << "\nTotal a pagar: ₡" << total << endl;
-                    
+                    cout << "\nTotal a pagar: $" << total << endl;
+
                     string metodo;
-                    cout << "Ingrese método de pago (tarjeta / efectivo): ";
+                    cout << "Ingrese metodo de pago (tarjeta / efectivo): ";
                     cin >> metodo;
 
                     Pago pago(metodo, total);
                     pago.procesarPago();
 
-                    cout << "\nCompra completada con éxito. ¡Gracias por su compra!\n";
+                    carrito.mostrarFactura(metodo);
+
                     carrito.vaciarCarrito();
                 }
             }
             else if (subopcion == 5) { 
                 if (carrito.estaVacio()) {
-                    cout << "\nEl carrito está vacío.\n";
+                    cout << "\nEl carrito esta vacio.\n";
                 }
                 else {
                     carrito.mostrarCarrito();
@@ -163,11 +165,11 @@ int main() {
             }
 
             else if (subopcion == 6) {
-                cout << "Cerrando sesión...\n";
+                cout << "Cerrando sesion...\n";
                 logueado = false;
             }
             else {
-                cout << "Opción inválida.\n";
+                cout << "Opcion invalida.\n";
             }
         }
 

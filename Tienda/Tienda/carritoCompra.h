@@ -15,5 +15,6 @@ public:
     double getTotal() const;
     void mostrarCarrito() const;
     void vaciarCarrito();
+    void mostrarFactura(const string& metodoPago) const;
     bool estaVacio() const;
 };

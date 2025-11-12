@@ -1,6 +1,7 @@
-
+ï»¿
 #include "CarritoCompra.h"
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 bool CarritoCompra::agregarItem(const Producto& producto, int cantidad) {
@@ -12,7 +13,7 @@ bool CarritoCompra::agregarItem(const Producto& producto, int cantidad) {
 
     
     if (totalUnidades + cantidad > MAX_UNIDADES) {
-        std::cout << "\n  No puedes agregar más de " << MAX_UNIDADES
+        std::cout << "\n  No puedes agregar mas de " << MAX_UNIDADES
             << " unidades en total al carrito.\n";
         return false; 
     }
@@ -23,7 +24,7 @@ bool CarritoCompra::agregarItem(const Producto& producto, int cantidad) {
             item.setCantidad(item.getCantidad() + cantidad);
             calcularTotal();
             std::cout << "\nSe agregaron " << cantidad
-                << " unidades más de '" << producto.getNombre() << "'.\n";
+                << " unidades mas de '" << producto.getNombre() << "'.\n";
             return true;
         }
     }
@@ -55,7 +56,7 @@ bool CarritoCompra::eliminarItem(int idProducto, int cantidadEliminar) {
             return true;
         }
     }
-    cout << "No se encontró el producto en el carrito.\n";
+    cout << "No se encontro el producto en el carrito.\n";
     return false;
 }
 
@@ -71,7 +72,7 @@ double CarritoCompra::getTotal() const {
 
 void CarritoCompra::mostrarCarrito() const {
     if (items.empty()) {
-        cout << "\nEl carrito está vacío.\n";
+        cout << "\nEl carrito esta vacio.\n";
         return;
     }
 
@@ -81,10 +82,37 @@ void CarritoCompra::mostrarCarrito() const {
             << "Producto: " << item.getProducto().getNombre() << " | "
             << "Cantidad: " << item.getCantidad() << " | "
             << "Precio unitario: ?" << item.getProducto().getPrecio() << " | "
-            << "Subtotal: ?" << item.calcularSubtotal() << "\n";
+            << "Subtotal: " << item.calcularSubtotal() << "\n";
     }
     cout << "-----------------------------\n";
-    cout << "Total: ?" << getTotal() << "\n";
+    cout << "Total: " << getTotal() << "\n";
+}
+
+void CarritoCompra::mostrarFactura(const std::string& metodoPago) const {
+    if (items.empty()) {
+        std::cout << "\nNo hay productos en el carrito.\n";
+        return;
+    }
+
+    std::cout << "\n========================================\n";
+    std::cout << "           FACTURA DE COMPRA\n";
+    std::cout << "========================================\n";
+    std::cout << std::left << std::setw(20) << "Producto"
+        << std::setw(10) << "Cant."
+        << std::setw(10) << "Subtotal" << "\n";
+    std::cout << "----------------------------------------\n";
+
+    for (const auto& item : items) {
+        std::cout << std::left << std::setw(20) << item.getProducto().getNombre()
+            << std::setw(10) << item.getCantidad()
+            << "â‚¡" << item.calcularSubtotal() << "\n";
+    }
+
+    std::cout << "----------------------------------------\n";
+    std::cout << "TOTAL A PAGAR: â‚¡" << getTotal() << "\n";
+    std::cout << "Metodo de pago: " << metodoPago << "\n";
+    std::cout << "Gracias por su compra, Â¡vuelva pronto!\n";
+    std::cout << "========================================\n";
 }
 
 void CarritoCompra::vaciarCarrito() {

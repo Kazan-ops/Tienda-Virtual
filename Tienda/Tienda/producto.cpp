@@ -25,6 +25,6 @@ void Producto::mostrarInfo() const {
     cout << "ID: " << idProducto
         << " | Nombre: " << nombre
         << " | Descripcion: " << descripcion
-        << " | Precio: colones " << precio
+        << " | Precio: $ " << precio
         << " | Stock: " << stock << endl;
 }

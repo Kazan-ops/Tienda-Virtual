@@ -1,4 +1,4 @@
-#include "pago.h"
+﻿#include "pago.h"
 #include <iostream>
 using namespace std;
 

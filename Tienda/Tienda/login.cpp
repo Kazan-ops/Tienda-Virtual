@@ -10,7 +10,7 @@ vector<Usuario> cargarUsuarios() {
     vector<Usuario> usuarios;
     ifstream archivo("usuarios.txt");
     if (!archivo.is_open()) {
-        cout << "Error: No se pudo abrir 'usuarios.txt'. Creando archivo vacío." << endl;
+        cout << "Error: No se pudo abrir 'usuarios.txt'. Creando archivo vacio." << endl;
         return usuarios;
     }
 
@@ -45,7 +45,7 @@ bool registrarUsuario(vector<Usuario>& usuarios) {
     cout << "Registro de usuario:" << endl;
     cout << "Elige un nombre de usuario: ";
     cin >> usuario;
-    cout << "Elige una contraseña: ";
+    cout << "Elige una contrasenna: ";
     cin >> contrasena;
 
     for (const auto& u : usuarios) {
@@ -66,7 +66,7 @@ bool loginUsuario(const vector<Usuario>& usuarios, string& usuarioLogueado) {
     cout << "Login:" << endl;
     cout << "Nombre de usuario: ";
     cin >> usuario;
-    cout << "Contraseña: ";
+    cout << "Contrasenna: ";
     cin >> contrasena;
 
     for (const auto& u : usuarios) {
