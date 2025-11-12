@@ -130,10 +130,12 @@
     <ClCompile Include="producto.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Inventario.cpp" />
+    <ClCompile Include="login.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="carritoCompra.h" />
     <ClInclude Include="checkout.h" />
+    <ClInclude Include="login.h" />
     <ClInclude Include="Inventario.h" />
     <ClInclude Include="ItemCarrito.h" />
     <ClInclude Include="pago.h" />
