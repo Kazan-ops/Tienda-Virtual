@@ -83,7 +83,8 @@ int main() {
             cout << "2. Agregar producto al carrito\n";
             cout << "3. Ver carrito\n";
             cout << "4. Realizar pago\n";
-            cout << "5. Cerrar sesión\n";
+			cout << "5. Eliminar producto del carrito\n";
+            cout << "6. Cerrar sesión\n";
             cout << "Seleccione una opción: ";
             cin >> subopcion;
 
@@ -132,7 +133,30 @@ int main() {
                     carrito.vaciarCarrito();
                 }
             }
-            else if (subopcion == 5) {
+            else if (subopcion == 5) { 
+                if (carrito.estaVacio()) {
+                    cout << "\nEl carrito está vacío.\n";
+                }
+                else {
+                    carrito.mostrarCarrito();
+                    int idEliminar, cantidad;
+                    cout << "\nIngrese el ID del producto a eliminar: ";
+                    cin >> idEliminar;
+                    cout << "Ingrese la cantidad que desea eliminar: ";
+                    cin >> cantidad;
+
+                    if (carrito.eliminarItem(idEliminar, cantidad)) {
+                        Producto* prod = inventario.buscarProducto(idEliminar);
+                        if (prod != nullptr) {
+                            inventario.actualizarStock(idEliminar, cantidad);
+                        }
+                    }
+                }
+                pausar();
+                limpiarPantalla();
+            }
+
+            else if (subopcion == 6) {
                 cout << "Cerrando sesión...\n";
                 logueado = false;
             }

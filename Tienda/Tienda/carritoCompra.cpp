@@ -4,16 +4,53 @@
 using namespace std;
 
 void CarritoCompra::agregarItem(const Producto& producto, int cantidad) {
-    items.emplace_back(producto, cantidad);
+
+    int totalUnidades = 0;
+    for (const auto& item : items)
+        totalUnidades += item.getCantidad();
+
+
+    if (totalUnidades + cantidad > MAX_UNIDADES) {
+        cout << "\n  No puedes agregar más de " << MAX_UNIDADES
+            << " unidades en total al carrito.\n";
+        return;
+    }
+
+    for (auto& item : items) {
+        if (item.getProducto().getIdProducto() == producto.getIdProducto()) {
+            item.setCantidad(item.getCantidad() + cantidad);
+            calcularTotal();
+            cout << "\nSe agregaron " << cantidad
+                << " unidades más de '" << producto.getNombre() << "'.\n";
+            return;
+        }
+    }
+
+    items.push_back(ItemCarrito(producto, cantidad));
     calcularTotal();
+    cout << "\nProducto '" << producto.getNombre() << "' agregado al carrito.\n";
 }
 
-void CarritoCompra::eliminarItem(int idProducto) {
-    items.erase(remove_if(items.begin(), items.end(),
-        [idProducto](const ItemCarrito& item) {
-            return item.getProducto().getIdProducto() == idProducto;
-        }), items.end());
-    calcularTotal();
+
+bool CarritoCompra::eliminarItem(int idProducto, int cantidadEliminar) {
+    for (auto it = items.begin(); it != items.end(); ++it) {
+        if (it->getProducto().getIdProducto() == idProducto) {
+            if (cantidadEliminar >= it->getCantidad()) {
+                cout << "Se eliminaron todas las unidades de '"
+                    << it->getProducto().getNombre() << "' del carrito.\n";
+                items.erase(it);
+            }
+            else {
+                it->setCantidad(it->getCantidad() - cantidadEliminar);
+                cout << "Se eliminaron " << cantidadEliminar
+                    << " unidades de '" << it->getProducto().getNombre() << "'.\n";
+            }
+            calcularTotal();
+            return true;
+        }
+    }
+    cout << "No se encontró el producto en el carrito.\n";
+    return false;
 }
 
 void CarritoCompra::calcularTotal() {
@@ -27,12 +64,21 @@ double CarritoCompra::getTotal() const {
 }
 
 void CarritoCompra::mostrarCarrito() const {
-    cout << "=== Carrito de compra ===" << endl;
-    for (const auto& item : items) {
-        cout << item.getProducto().getNombre() << " x" << item.getCantidad()
-            << " = " << item.calcularSubtotal() << endl;
+    if (items.empty()) {
+        cout << "\nEl carrito está vacío.\n";
+        return;
     }
-    cout << "Total: " << total << endl;
+
+    cout << "\n=== Carrito de Compras ===\n";
+    for (const auto& item : items) {
+        cout << "ID: " << item.getProducto().getIdProducto() << " | "
+            << "Producto: " << item.getProducto().getNombre() << " | "
+            << "Cantidad: " << item.getCantidad() << " | "
+            << "Precio unitario: ?" << item.getProducto().getPrecio() << " | "
+            << "Subtotal: ?" << item.calcularSubtotal() << "\n";
+    }
+    cout << "-----------------------------\n";
+    cout << "Total: ?" << getTotal() << "\n";
 }
 
 void CarritoCompra::vaciarCarrito() {

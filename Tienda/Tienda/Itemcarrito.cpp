@@ -15,4 +15,7 @@ Producto ItemCarrito::getProducto() const {
 int ItemCarrito::getCantidad() const {
 	return cantidad;
 }
-
+void ItemCarrito::setCantidad(int nuevaCantidad) {
+	if (nuevaCantidad < 0) nuevaCantidad = 0;
+	cantidad = nuevaCantidad;
+}
