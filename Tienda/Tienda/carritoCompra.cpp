@@ -1,3 +1,4 @@
+
 #include "CarritoCompra.h"
 #include <iostream>
 using namespace std;
@@ -32,4 +33,13 @@ void CarritoCompra::mostrarCarrito() const {
             << " = " << item.calcularSubtotal() << endl;
     }
     cout << "Total: " << total << endl;
+}
+
+void CarritoCompra::vaciarCarrito() {
+    items.clear();
+    cout << "\nEl carrito ha sido vaciado.\n";
+}
+
+bool CarritoCompra::estaVacio() const {
+    return items.empty();
 }

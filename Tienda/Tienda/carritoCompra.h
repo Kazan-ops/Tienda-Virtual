@@ -13,4 +13,6 @@ public:
     void calcularTotal();
     double getTotal() const;
     void mostrarCarrito() const;
+    void vaciarCarrito(); 
+    bool estaVacio() const; 
 };
