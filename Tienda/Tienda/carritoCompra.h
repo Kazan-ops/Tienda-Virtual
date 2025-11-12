@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "ItemCarrito.h"
-#define MAX_UNIDADES 15
+constexpr auto MAX_UNIDADES = 15;
 
 class CarritoCompra {
 private:
@@ -14,6 +14,6 @@ public:
     void calcularTotal();
     double getTotal() const;
     void mostrarCarrito() const;
-    void vaciarCarrito(); 
-    bool estaVacio() const; 
+    void vaciarCarrito();
+    bool estaVacio() const;
 };
