@@ -9,7 +9,7 @@ private:
     double total;
 
 public:
-    void agregarItem(const Producto& producto, int cantidad);
+    bool agregarItem(const Producto& producto, int cantidad);
     bool eliminarItem(int idProducto, int cantidadEliminar);
     void calcularTotal();
     double getTotal() const;
