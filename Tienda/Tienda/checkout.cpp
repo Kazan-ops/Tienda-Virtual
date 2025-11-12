@@ -1,4 +1,4 @@
-#include "checkout.h"
+﻿#include "checkout.h"
 #include <iostream>
 #include <iomanip>
 
@@ -14,6 +14,6 @@ void Checkout::generarFactura() {
 	cout << fixed << setprecision(2);
 	cout << "----- FACTURA -----" << endl;
 	carrito.mostrarCarrito();
-	cout << "Total a pagar: $" << carrito.getTotal() << endl;
+	cout << "Total a pagar: ₡" << carrito.getTotal() << endl;
 	cout << "-------------------" << endl;
 }

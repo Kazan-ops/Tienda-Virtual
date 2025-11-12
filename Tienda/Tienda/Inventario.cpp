@@ -25,7 +25,7 @@ void Inventario::actualizarStock(int idProducto, int cantidad) {
             if (cantidadAbs <= stockActual) {
                 producto->actualizarStock(cantidadAbs);
                 cout << " Venta realizada de " << cantidadAbs
-                    << " unidad(es) de " << producto->getNombre() << endl;
+                    << " unidad/s de " << producto->getNombre() << endl;
             }
             else {
                 cout << " No hay suficiente stock de "
