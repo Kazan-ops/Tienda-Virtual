@@ -34,6 +34,19 @@ int main() {
 	inventario.agregarProducto(Producto(7, "medias Jordan", "medias para deportes Jordan", 55000, 4));
 	inventario.agregarProducto(Producto(8, "sueter Addidas", "Sueter de cuero resistente al agua", 75000, 6));
 	inventario.agregarProducto(Producto(9, "boxer Tommy", "Boxer estirante Tommy", 120000, 2));
+	inventario.agregarProducto(Producto(10, "pantalon de cuero", "pantalon de cuero ancho", 90000, 9));
+	inventario.agregarProducto(Producto(11, "camiseta nike", "camiseta deportiva nike", 40000, 15));
+	inventario.agregarProducto(Producto(12, "camisa sin mangas ", "camisa sin mangas floja", 110000, 5));
+	inventario.agregarProducto(Producto(13, "falda corta", "falda corta de mezclilla", 35000, 12)); 
+	inventario.agregarProducto(Producto(14, "blusa elegante", "blusa elegante de seda", 95000, 4));
+	inventario.agregarProducto(Producto(15, "shorts deportivos", "shorts cómodos para hacer ejercicio", 28000, 10));
+	inventario.agregarProducto(Producto(16, "bufanda de lana", "bufanda cálida de lana", 22000, 14));
+	inventario.agregarProducto(Producto(17, "guantes táctiles", "guantes que permiten usar pantallas táctiles", 15000, 18));
+	inventario.agregarProducto(Producto(18, "licra de mujer", "licra larga para mujer", 120000, 7));
+	inventario.agregarProducto(Producto(19, "polo deportivo", "polo transpirable para deportes", 50000, 11));
+	inventario.agregarProducto(Producto(20, "chaleco reflectante", "chaleco para correr de noche", 30000, 9));
+   
+
     int opcion = 0;
     bool logueado = false;
 
